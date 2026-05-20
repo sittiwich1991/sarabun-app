@@ -28,16 +28,15 @@
             <label for="room">ห้อง:</label>
             <select id="room" name="room" required>
                 <option value="">เลือกห้อง</option>
-                <option value="Room101">Room101</option>
-                <option value="Room102">Room102</option>
-                <option value="Room103">Room103</option>
-                <option value="Room104">Room104</option>
-                <option value="Room105">Room105</option>
-                <option value="Room106">Room106</option>
-                <option value="Room107">Room107</option>
-                <option value="Room108">Room108</option>
-                <option value="Room109">Room109</option>
-                <option value="Room110">Room110</option>
+                <option value="Room101">ป.1</option>
+                <option value="Room102">ป.2</option>
+                <option value="Room103">ป.3</option>
+                <option value="Room104">ป.4</option>
+                <option value="Room105">ป.5</option>
+                <option value="Room106">ป.6</option>
+                <option value="Room107">อ.2</option>
+                <option value="Room108">อ.3</option>
+
             </select>
 
             <label for="name">ชื่อ:</label>
@@ -57,7 +56,7 @@
     <script>
         async function initLiff() {
             // ใส่ LIFF ID ของคุณ
-            const liffId = "YOUR_LIFF_ID";
+            const liffId = "2010144497-mlZoiU3h";
 
             // Show loading SweetAlert
             Swal.fire({
@@ -80,7 +79,7 @@
                 document.getElementById('profile').style.display = 'block';
 
                 // ตรวจสอบว่าผู้ใช้ลงทะเบียนหรือยัง
-                fetch('YOUR_API_URL?action=getTenantInfo&userId=' + userId)
+                fetch('https://script.google.com/macros/s/AKfycbzHvi2Y6s4agdt1iPrzvPQPzBRF3d7Shnz-9KrOTapOc80V_0AUQlaGXihb-sM78a1n/exec?action=getTenantInfo&userId=' + userId)
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
@@ -104,7 +103,7 @@
 
         // ฟังก์ชันดึงห้องที่ลงทะเบียนแล้ว
         function fetchRegisteredRooms() {
-            fetch('YOUR_API_URL?action=getRegisteredRooms')
+            fetch('https://script.google.com/macros/s/AKfycbzHvi2Y6s4agdt1iPrzvPQPzBRF3d7Shnz-9KrOTapOc80V_0AUQlaGXihb-sM78a1n/exec?action=getRegisteredRooms')
             .then(response => response.json())
             .then(registeredRooms => {
                 const roomSelect = document.getElementById('room');
@@ -132,7 +131,7 @@
             const formObj = {};
             formData.forEach((value, key) => formObj[key] = value);
 
-            fetch('YOUR_API_URL?action=registerTenant', {
+            fetch('https://script.google.com/macros/s/AKfycbzHvi2Y6s4agdt1iPrzvPQPzBRF3d7Shnz-9KrOTapOc80V_0AUQlaGXihb-sM78a1n/exec?action=registerTenant', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
